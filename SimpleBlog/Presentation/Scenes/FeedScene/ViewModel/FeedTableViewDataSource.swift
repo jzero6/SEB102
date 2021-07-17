@@ -20,13 +20,29 @@ final class FeedTableViewDataSource: BaseTableViewDataSource {
         
         singleSectionModels = []
     }
+    
+    override func refresh() {
+        viewModel.fetchRecentBlogs { [unowned self] result  in
+            switch result {
+            case .success(let blogs):
+                DispatchQueue.main.async {
+                    for blog in blogs {
+                        self.singleSectionModels.append(self.recentCell(data: blog))
+                    }
+                    self.tableView?.reloadData()
+                }
+            case .failure(let err):
+                print(err)
+            }
+        }
+    }
 
 }
 
 // MARK: - TableView Cells
-private extension MainTableViewDataSource {
+private extension FeedTableViewDataSource {
 
-    private func recentCell(data: CategoryModel) -> CellViewModel {
+    private func recentCell(data: RecentBlogModel) -> CellViewModel {
         return CellViewModel(cellIdentifier: RecentCell.identifier,
                              userData: [.data: data])
     }

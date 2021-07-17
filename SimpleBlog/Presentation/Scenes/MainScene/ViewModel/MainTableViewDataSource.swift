@@ -21,7 +21,7 @@ final class MainTableViewDataSource: BaseTableViewDataSource {
         singleSectionModels = []
     }
     
-    func categoryInfoRefresh(){
+    override func refresh() {
         viewModel.fetchCategory { [unowned self] result  in
             switch result {
             case .success(let categories):

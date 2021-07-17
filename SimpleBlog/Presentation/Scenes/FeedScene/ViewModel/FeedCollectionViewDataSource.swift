@@ -27,6 +27,24 @@ final class FeedCollectionViewDataSource: BaseCollectionViewDataSource {
         self.singleSectionModels.append(self.feedCategoryCell(data: data0))
         self.singleSectionModels.append(self.feedCategoryCell(data: data1))
         self.singleSectionModels.append(self.feedCategoryCell(data: data2))
+        
+        collectionView?.reloadData()
+    }
+    
+    func storiedRefresh() {
+        viewModel.fetchStories { [unowned self] result  in
+            switch result {
+            case .success(let stories):
+                DispatchQueue.main.async {
+                    for story in stories {
+                        self.singleSectionModels.append(self.storiesCell(data: story))
+                    }
+                    self.collectionView?.reloadData()
+                }
+            case .failure(let err):
+                print(err)
+            }
+        }
     }
 
 }
@@ -35,6 +53,10 @@ final class FeedCollectionViewDataSource: BaseCollectionViewDataSource {
 private extension FeedCollectionViewDataSource {
     private func feedCategoryCell(data: FilterCellData) -> CellViewModel {
         return CellViewModel(cellIdentifier: FeedCategoryCell.identifier,
+                             userData: [.data: data])
+    }
+    private func storiesCell(data: StoryModel) -> CellViewModel {
+        return CellViewModel(cellIdentifier: StoriesCell.identifier,
                              userData: [.data: data])
     }
 }

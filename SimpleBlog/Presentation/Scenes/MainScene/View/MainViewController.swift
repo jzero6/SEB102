@@ -35,7 +35,7 @@ class MainViewController: BaseViewController {
         viewModel = MainViewModel(controller: self)
         tableViewDataSource = MainTableViewDataSource(with: tableView,viewModel: viewModel)
         collectionViewDataSource = MainCollectionViewDataSource(with: collectionView, viewModel: viewModel)
-        tableViewDataSource.categoryInfoRefresh()
+        tableViewDataSource.refresh()
         collectionViewDataSource.filterInfoRefresh()
     }
     

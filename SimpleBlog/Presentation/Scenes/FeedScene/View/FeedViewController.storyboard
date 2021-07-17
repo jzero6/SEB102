@@ -87,25 +87,84 @@
                                     <constraint firstAttribute="height" constant="268" id="doe-yL-Sl2"/>
                                 </constraints>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Related Stories" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xxz-n7-nb6">
+                                <rect key="frame" x="20" y="474" width="119.5" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="RGg-uD-U40"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
+                                <color key="textColor" red="0.098039215686274508" green="0.10588235294117647" blue="0.11372549019607843" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dum-CL-YZ3">
+                                <rect key="frame" x="20" y="514" width="6" height="6"/>
+                                <color key="backgroundColor" red="0.9882352941176471" green="0.51764705882352935" blue="0.12549019607843137" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="6" id="8yZ-lg-uFa"/>
+                                    <constraint firstAttribute="width" constant="6" id="Cm8-F7-ktc"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SCIENCE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hFT-l1-Ni7">
+                                <rect key="frame" x="32" y="514" width="27.5" height="6"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="6" id="hJ3-NI-CKg"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="6"/>
+                                <color key="textColor" red="0.4823529411764706" green="0.52156862745098043" blue="0.56862745098039214" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Vax-H5-5K9">
+                                <rect key="frame" x="0.0" y="536" width="414" height="134"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="134" id="JxP-G9-yud"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="hnJ-UL-hKB">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="sSh-oZ-uVg">
+                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="SjX-0m-jax">
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="hFT-l1-Ni7" firstAttribute="leading" secondItem="dum-CL-YZ3" secondAttribute="trailing" constant="6" id="39O-hR-bwm"/>
                             <constraint firstItem="4g2-Gf-Yxo" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="4JT-qP-rep"/>
+                            <constraint firstItem="Vax-H5-5K9" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="6tK-qb-bce"/>
                             <constraint firstItem="lrR-Rx-GZZ" firstAttribute="top" secondItem="4g2-Gf-Yxo" secondAttribute="bottom" constant="24" id="7YQ-tc-IWt"/>
+                            <constraint firstItem="hFT-l1-Ni7" firstAttribute="top" secondItem="xxz-n7-nb6" secondAttribute="bottom" constant="20" id="DQu-d9-kuj"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="4g2-Gf-Yxo" secondAttribute="trailing" id="EYI-M9-byM"/>
+                            <constraint firstItem="xxz-n7-nb6" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="M3U-l4-sIh"/>
+                            <constraint firstItem="xxz-n7-nb6" firstAttribute="top" secondItem="dLm-cI-VxZ" secondAttribute="bottom" constant="20" id="QmZ-CL-453"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="lrR-Rx-GZZ" secondAttribute="trailing" id="YX5-ds-u6Q"/>
                             <constraint firstItem="lrR-Rx-GZZ" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="bXJ-BB-uDN"/>
+                            <constraint firstItem="dum-CL-YZ3" firstAttribute="top" secondItem="xxz-n7-nb6" secondAttribute="bottom" constant="20" id="erR-0m-L7f"/>
+                            <constraint firstItem="Vax-H5-5K9" firstAttribute="top" secondItem="dum-CL-YZ3" secondAttribute="bottom" constant="16" id="euG-sI-b9q"/>
+                            <constraint firstItem="dum-CL-YZ3" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="fo1-3F-k9b"/>
                             <constraint firstItem="dLm-cI-VxZ" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="hTL-FI-zMO"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="dLm-cI-VxZ" secondAttribute="trailing" id="jQ8-xC-dns"/>
                             <constraint firstItem="dLm-cI-VxZ" firstAttribute="top" secondItem="lrR-Rx-GZZ" secondAttribute="bottom" constant="24" id="oF2-ZQ-j8V"/>
                             <constraint firstItem="4g2-Gf-Yxo" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="s7r-C1-jAu"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Vax-H5-5K9" secondAttribute="trailing" id="yfg-w2-GfW"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Feed" image="list.bullet.rectangle" catalog="system" id="y0m-7O-Vvc"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="collectionView" destination="lrR-Rx-GZZ" id="v93-lG-9I7"/>
+                        <outlet property="storiesCollectionView" destination="Vax-H5-5K9" id="Ovi-iI-t2B"/>
                         <outlet property="tableView" destination="dLm-cI-VxZ" id="tL5-Ct-B1a"/>
                     </connections>
                 </viewController>

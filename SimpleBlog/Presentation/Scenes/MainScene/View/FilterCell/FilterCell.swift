@@ -21,7 +21,7 @@ class FilterCell: UICollectionViewCell, CollectionViewCellConfigurable {
         filterLabel.text = data.title
         if data.check == true {
             filterLabel.layer.backgroundColor = UIColor(named: "FilterLabelColor")!.cgColor
-            filterLabel.layer.cornerRadius = 20
+            filterLabel.layer.cornerRadius = filterLabel.frame.height / 2
             filterLabel.layer.borderWidth = 2
             filterLabel.layer.borderColor = UIColor.lightGray.cgColor
             filterLabel.textColor = .black

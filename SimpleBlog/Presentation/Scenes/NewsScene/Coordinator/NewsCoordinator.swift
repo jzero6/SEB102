@@ -8,8 +8,8 @@
 import UIKit
 
 final class NewsCoordinator: CoordinatorProtocol {
-    //var productsManager: ProductsManagerProtocol?
-
+    
+    var newsManager: NewsManagerProtocol?
     var navigationController: UINavigationController?
     
     init(_ window: UIWindow? = nil, navigationController: UINavigationController? = UINavigationController()) {
@@ -19,6 +19,6 @@ final class NewsCoordinator: CoordinatorProtocol {
         let vc = NewsViewController.instantiateFromStoryboard()
         vc.coordinator = self
         self.navigationController?.viewControllers = [vc]
-        //productsManager = ProductsManager()
+        newsManager = NewsManager()
     }
 }

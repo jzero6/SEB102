@@ -8,8 +8,9 @@
 import UIKit
 
 final class FeedCoordinator: CoordinatorProtocol {
-    //var productsManager: ProductsManagerProtocol?
-
+    
+    var recentBlogManager: RecentBlogManagerProtocol?
+    var storyManager: StoryManagerProtocol?
     var navigationController: UINavigationController?
     
     init(_ window: UIWindow? = nil, navigationController: UINavigationController? = UINavigationController()) {
@@ -19,6 +20,7 @@ final class FeedCoordinator: CoordinatorProtocol {
         let vc = FeedViewController.instantiateFromStoryboard()
         vc.coordinator = self
         self.navigationController?.viewControllers = [vc]
-        //productsManager = ProductsManager()
+        recentBlogManager = RecentBlogManager()
+        storyManager = StoryManager()
     }
 }
