@@ -14,6 +14,7 @@ final class FeedCoordinator: CoordinatorProtocol {
     
     init(_ window: UIWindow? = nil, navigationController: UINavigationController? = UINavigationController()) {
         self.navigationController = navigationController
+        self.navigationController?.navigationBar.isHidden = true
         
         let vc = FeedViewController.instantiateFromStoryboard()
         vc.coordinator = self

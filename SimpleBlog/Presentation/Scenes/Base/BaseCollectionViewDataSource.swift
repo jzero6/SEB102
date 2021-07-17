@@ -50,8 +50,12 @@ extension BaseCollectionViewDataSource: UICollectionViewDataSource {
         
         
         switch cellViewModel.cellIdentifier {
-//        case SomeProductsItemCell.identifier:
-//            cell = collectionView.deque(SomeProductsItemCell.self, for: indexPath)
+        case FilterCell.identifier:
+            cell = collectionView.deque(FilterCell.self, for: indexPath)
+        case FavouritesCell.identifier:
+            cell = collectionView.deque(FavouritesCell.self, for: indexPath)
+        case FeedCategoryCell.identifier:
+            cell = collectionView.deque(FeedCategoryCell.self, for: indexPath)
         default:
             if let _cell = initCustomCollectionViewCell(for: indexPath, with: cellViewModel.cellIdentifier) {
                 cell = _cell
@@ -63,7 +67,6 @@ extension BaseCollectionViewDataSource: UICollectionViewDataSource {
         if let configurableCell = cell as? CollectionViewCellConfigurable {
             configurableCell.configure(with: cellViewModel)
         }
-        
         return cell
     }
     

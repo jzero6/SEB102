@@ -9,21 +9,47 @@ import UIKit
 
 class FeedViewController: BaseViewController {
 
+    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var tableView: UITableView!
+    
+    private var tableViewDataSource: FeedTableViewDataSource!
+    private var collectionViewDataSource: FeedCollectionViewDataSource!
+    private var viewModel:  FeedViewModelProtocol!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        setupLayout()
+        configureViewModel()
+        setUpCollectionView()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    private func setupLayout() {
+        tableView.registerNib(class: RecentCell.self)
+        collectionView.registerNib(class: FeedCategoryCell.self)
     }
-    */
+        
+    private func configureViewModel() {
+        viewModel = FeedViewModel(controller: self)
+        tableViewDataSource = FeedTableViewDataSource(with: tableView,viewModel: viewModel)
+        collectionViewDataSource = FeedCollectionViewDataSource(with: collectionView, viewModel: viewModel)
+        //tableViewDataSource.categoryInfoRefresh()
+        collectionViewDataSource.feedCategoryInfoRefresh()
+    }
+    
+    private func setUpCollectionView() {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        layout.itemSize = CGSize(width: 80, height: 32)
+        collectionView.contentInset = UIEdgeInsets(top: 0, left: 20 , bottom: 0, right: 0)
+        layout.minimumLineSpacing = 50
+        collectionView.collectionViewLayout = layout
+        collectionView.isPagingEnabled = true
+    }
+}
 
+extension FeedViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: 80, height: 32)
+    }
 }

@@ -8,22 +8,44 @@
 import UIKit
 
 class FavouritesViewController: BaseViewController {
+    
+    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var pageIndicator: UIPageControl!
 
+    private var dataSource: FavouritesDataSource!
+    private var viewModel:  FavouritesViewModelProtocol!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        setupLayout()
+        configureViewModel()
+        setUpCollectionView()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    private func setupLayout() {
+        collectionView.registerNib(class: FavouritesCell.self)
     }
-    */
+        
+    private func configureViewModel() {
+        viewModel = FavouritesViewModel(controller: self)
+        dataSource = FavouritesDataSource(with: collectionView, viewModel: viewModel)
+        dataSource.favouritesCellRefresh()
+    }
+    
+    private func setUpCollectionView() {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        layout.itemSize = CGSize(width: 260, height: 470)
+        collectionView.contentInset = UIEdgeInsets(top: 0, left: -(260-((UIScreen.main.bounds.size.width - 280) / 2)) , bottom: 0, right: 0)
+        layout.minimumLineSpacing = 10
+        collectionView.collectionViewLayout = layout
+        collectionView.isPagingEnabled = true
+    }
+}
 
+extension FavouritesViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: 260, height: 470)
+    }
 }

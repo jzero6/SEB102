@@ -9,7 +9,7 @@ import UIKit
 
 protocol CoordinatorProtocol: AnyObject {
     
-    //var productsManager: ProductsManagerProtocol? { get }
+    var categoryManager: CategoryManagerProtocol? { get }
     
     init(_ window: UIWindow?, navigationController: UINavigationController?)
     
@@ -17,10 +17,10 @@ protocol CoordinatorProtocol: AnyObject {
 }
 
 extension CoordinatorProtocol {
-//    var productsManager: ProductsManagerProtocol? {
-//        set { print("") }
-//        get { nil }
-//    }
+    var categoryManager: CategoryManagerProtocol? {
+        set { print("") }
+        get { nil }
+    }
 
     func start(){}
 }

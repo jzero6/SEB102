@@ -18,10 +18,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="JPo-IP-aEr">
-                                <rect key="frame" x="0.0" y="74" width="414" height="51"/>
+                                <rect key="frame" x="10" y="74" width="414" height="51"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="5tm-BD-8hZ">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="5tm-BD-8hZ">
                                 <rect key="frame" x="0.0" y="145" width="414" height="40"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
@@ -52,7 +52,7 @@
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="JPo-IP-aEr" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="UyQ-0i-Ieg"/>
+                            <constraint firstItem="JPo-IP-aEr" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" constant="10" id="UyQ-0i-Ieg"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="Xxy-c5-CHb" secondAttribute="bottom" id="Wiv-oz-ipY"/>
                             <constraint firstItem="Xxy-c5-CHb" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="XUi-ON-8XK"/>
                             <constraint firstItem="5tm-BD-8hZ" firstAttribute="top" secondItem="JPo-IP-aEr" secondAttribute="bottom" constant="20" id="aar-sR-EaR"/>
@@ -60,9 +60,8 @@
                             <constraint firstItem="5tm-BD-8hZ" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="cgM-zo-EYc"/>
                             <constraint firstItem="JPo-IP-aEr" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="30" id="euT-Yi-iMJ"/>
                             <constraint firstItem="Xxy-c5-CHb" firstAttribute="top" secondItem="5tm-BD-8hZ" secondAttribute="bottom" constant="20" id="hce-Vl-KS1"/>
-                            <constraint firstItem="JPo-IP-aEr" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="vAa-cS-EDq"/>
+                            <constraint firstItem="JPo-IP-aEr" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="10" id="vAa-cS-EDq"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Xxy-c5-CHb" secondAttribute="trailing" id="wAd-9Y-aRy"/>
-                            <constraint firstItem="JPo-IP-aEr" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="zZe-tk-rD6"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Home" image="homekit" catalog="system" id="9wl-l7-odM"/>

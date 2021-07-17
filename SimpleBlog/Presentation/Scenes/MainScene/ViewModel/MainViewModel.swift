@@ -9,6 +9,8 @@ import Foundation
 
 protocol MainViewModelProtocol {
 
+    func fetchCategory(completion: @escaping ((Result<[CategoryModel], Error>) -> Void))
+    
     var controller: CoordinatorDelegate { get }
     
     init(controller: CoordinatorDelegate)
@@ -22,4 +24,7 @@ final class MainViewModel: MainViewModelProtocol {
         self.controller = controller
     }
     
+    func fetchCategory(completion: @escaping ((Result<[CategoryModel], Error>) -> Void)){
+        controller.coordinator?.categoryManager?.fetchCategory(completion: completion)
+    }
 }

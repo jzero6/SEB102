@@ -8,7 +8,7 @@
 import UIKit
 
 final class MainCoordinator: CoordinatorProtocol {
-    //var productsManager: ProductsManagerProtocol?
+    var categoryManager: CategoryManagerProtocol?
 
     var navigationController: UINavigationController?
     
@@ -19,7 +19,7 @@ final class MainCoordinator: CoordinatorProtocol {
         let vc = MainViewController.instantiateFromStoryboard()
         vc.coordinator = self
         self.navigationController?.viewControllers = [vc]
-        //productsManager = ProductsManager()
+        categoryManager = CategoryManager()
     }
 }
 

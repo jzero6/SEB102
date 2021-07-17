@@ -11,7 +11,6 @@ class BaseTableViewDataSource: NSObject {
     
     var singleSectionModels: [CellItem]!
     var multiSectionModels: [[CellItem]]!
-    var coordinator: CoordinatorDelegate!
     
     weak var tableView: UITableView? {
         didSet {
@@ -47,13 +46,14 @@ extension BaseTableViewDataSource: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cellViewModel = items(for: indexPath.section)[indexPath.row]
-        let coordinator = coordinator.coordinator
         let cell: UITableViewCell
         
         
         switch cellViewModel.cellIdentifier {
-        //case CategoryCell.identifier:
-            //cell = tableView.deque(CategoryCell.self, for: indexPath)
+        case CategoryCell.identifier:
+            cell = tableView.deque(CategoryCell.self, for: indexPath)
+        case RecentCell.identifier:
+            cell = tableView.deque(RecentCell.self, for: indexPath)
         default:
             if let _cell = initCustomCell(for: indexPath, with: cellViewModel.cellIdentifier) {
                 cell = _cell
@@ -65,11 +65,7 @@ extension BaseTableViewDataSource: UITableViewDataSource {
         if let configurableCell = cell as? CellConfigurable {
             configurableCell.configure(with: cellViewModel)
         }
-        
-        if let configurableTableCell = cell as? TableCellConfigurable {
-            configurableTableCell.configure(with: coordinator!)
-        }
-        
+
         return cell
     }
     
